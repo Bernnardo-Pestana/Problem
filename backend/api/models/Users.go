@@ -4,7 +4,6 @@ import (
 	"errors"
 	"html"
 	"log"
-	"fmt"
 	"strings"
 	"time"
 	"golang.org/x/crypto/bcrypt"

@@ -129,15 +129,7 @@ func (server *Server) DeleteUser(w http.ResponseWriter, r *http.Request) {
 		response.ERROR(w, http.StatusBadRequest, err)
 		return
 	}
-	tokenID, err := auth.ExtractTokenID(r)
-	if err != nil {
-		response.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
-		return
-	}
-	if tokenID != 0 && tokenID != uint32(uid) {
-		response.ERROR(w, http.StatusUnauthorized, errors.New(http.StatusText(http.StatusUnauthorized)))
-		return
-	}
+	
 	_, err = user.DeleteAUser(server.DB, uint32(uid))
 	if err != nil {
 		response.ERROR(w, http.StatusInternalServerError, err)

@@ -19,12 +19,15 @@ func (s *Server) initializeRoutes() {
 	s.Router.HandleFunc("/users/{id}", middlewares.SetMiddlewareJSON(s.UpdateUser)).Methods("PUT")
 	s.Router.HandleFunc("/users/{id}", middlewares.SetMiddlewareJSON(s.DeleteUser)).Methods("DELETE")
 
-	//Posts routes
-	/*
-	s.Router.HandleFunc("/posts", middlewares.SetMiddlewareJSON(s.CreatePost)).Methods("POST")
-	s.Router.HandleFunc("/posts", middlewares.SetMiddlewareJSON(s.GetPosts)).Methods("GET")
-	s.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareJSON(s.GetPost)).Methods("GET")
-	s.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareJSON(middlewares.SetMiddlewareAuthentication(s.UpdatePost))).Methods("PUT")
-	s.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareAuthentication(s.DeletePost)).Methods("DELETE")
-	*/
+	//products routes
+	
+	s.Router.HandleFunc("/products", middlewares.SetMiddlewareJSON(s.CreateProduct)).Methods("POST")
+	s.Router.HandleFunc("/products", middlewares.SetMiddlewareJSON(s.GetProducts)).Methods("GET")
+	
+	s.Router.HandleFunc("/product/{id}", middlewares.SetMiddlewareJSON(s.GetProductById)).Methods("GET")
+	
+	s.Router.HandleFunc("/product/{id}", middlewares.SetMiddlewareJSON(s.UpdateProduct)).Methods("PUT")
+	
+	s.Router.HandleFunc("/product/{id}", s.DeleteProduct ).Methods("DELETE")
+	
 }
