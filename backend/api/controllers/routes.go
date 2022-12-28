@@ -28,6 +28,18 @@ func (s *Server) initializeRoutes() {
 	
 	s.Router.HandleFunc("/product/{id}", middlewares.SetMiddlewareJSON(s.UpdateProduct)).Methods("PUT")
 	
-	s.Router.HandleFunc("/product/{id}", s.DeleteProduct ).Methods("DELETE")
+	s.Router.HandleFunc("/product/{id}",middlewares.SetMiddlewareJSON(s.DeleteProduct) ).Methods("DELETE")
+
+		//purchases routes
+	
+		s.Router.HandleFunc("/purchases", middlewares.SetMiddlewareJSON(s.CreatePurchase)).Methods("POST")
+		s.Router.HandleFunc("/purchases", middlewares.SetMiddlewareJSON(s.GetPurchases)).Methods("GET")
+		
+		s.Router.HandleFunc("/purchases/{id}", middlewares.SetMiddlewareJSON(s.GetPurchaseById)).Methods("GET")
+		
+		s.Router.HandleFunc("/purchases/{id}", middlewares.SetMiddlewareJSON(s.UpdatePurchase)).Methods("PUT")
+		
+		s.Router.HandleFunc("/purchases/{id}",middlewares.SetMiddlewareJSON(s.DeletePurchase) ).Methods("DELETE")
+		
 	
 }
