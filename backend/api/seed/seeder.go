@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/jinzhu/gorm"
-	"../models"
+	"github.com/Bernnardo-Pestana/Problem/api/models"
 )
 
 

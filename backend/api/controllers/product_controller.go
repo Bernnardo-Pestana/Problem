@@ -2,17 +2,16 @@ package controllers
 
 import (
 	"encoding/json"
-	//"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"../models"
-	"../response"
-	"../utils/formaterror"
-	//"../auth"
+	"github.com/Bernnardo-Pestana/Problem/api/models"
+	"github.com/Bernnardo-Pestana/Problem/api/response"
+	"github.com/Bernnardo-Pestana/Problem/api/utils/formaterror"
+
 )
 
 func (server *Server) CreateProduct(w http.ResponseWriter, r *http.Request) {

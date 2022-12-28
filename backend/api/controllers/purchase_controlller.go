@@ -9,9 +9,9 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"../models"
-	"../response"
-	"../utils/formaterror"
+	"github.com/Bernnardo-Pestana/Problem/api/models"
+	"github.com/Bernnardo-Pestana/Problem/api/response"
+	"github.com/Bernnardo-Pestana/Problem/api/utils/formaterror"
 	//"../auth"
 )
 

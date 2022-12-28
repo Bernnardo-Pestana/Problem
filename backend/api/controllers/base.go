@@ -9,7 +9,7 @@ import (
 
 		_ "github.com/jinzhu/gorm/dialects/postgres" //postgres database driver
 
-	"../models"
+	"github.com/Bernnardo-Pestana/Problem/api/models"
 )
 
 type Server struct {

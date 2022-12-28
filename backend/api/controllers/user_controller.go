@@ -2,17 +2,16 @@ package controllers
 
 import (
 	"encoding/json"
-	"errors"
+	//"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"../models"
-	"../response"
-	"../utils/formaterror"
-	"../auth"
+	"github.com/Bernnardo-Pestana/Problem/api/models"
+	"github.com/Bernnardo-Pestana/Problem/api/response"
+	"github.com/Bernnardo-Pestana/Problem/api/utils/formaterror"
 )
 
 func (server *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
@@ -92,15 +91,6 @@ func (server *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	err = json.Unmarshal(body, &user)
 	if err != nil {
 		response.ERROR(w, http.StatusUnprocessableEntity, err)
-		return
-	}
-	tokenID, err := auth.ExtractTokenID(r)
-	if err != nil {
-		response.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
-		return
-	}
-	if tokenID != uint32(uid) {
-		response.ERROR(w, http.StatusUnauthorized, errors.New(http.StatusText(http.StatusUnauthorized)))
 		return
 	}
 	user.Prepare()

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./api"
+	"github.com/Bernnardo-Pestana/Problem/api"
 )
 
 func main() {
